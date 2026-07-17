@@ -78,7 +78,7 @@ public class RegistrationTest extends BaseTest {
                 .clickSubmitButton();
 
         registrationPage.pressCloseButton();
-        Assert.assertTrue(registrationPage.isModalVisible(), "Modal window should still be visible!");
+        Assert.assertFalse(registrationPage.isModalVisible(), "Modal window should not be visible!");
     }
 
     @Test(description = "Negative Test: Submit empty form and verify HTML5 validation")

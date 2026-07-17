@@ -32,7 +32,7 @@ public class RegistrationPage {
     private final SelenideElement submitButton = $("#submit");
     private final SelenideElement resultsModal = $(".modal-content");
     private final SelenideElement resultsTable = $(".table-responsive");
-    private final SelenideElement closeModalButton = $(".closeLargeModal");
+    private final SelenideElement closeModalButton = $("#closeLargeModal");
 
     private SelenideElement getGenderLabel(String gender) {
         return $("#genterWrapper").$(byText(gender));
@@ -142,15 +142,14 @@ public class RegistrationPage {
 
     @Step("Click submit button")
     public RegistrationPage clickSubmitButton() {
+        submitButton.scrollTo();
         submitButton.click();
         return this;
     }
 
     @Step("Get modal result value for field: {key}")
     public String getModalResultValue(String key) {
-        // Переконуємося, що модалка видима
         resultsModal.shouldBe(Condition.visible);
-        // Повертаємо текст правої комірки для нашого поля
         return resultsTable.$(byText(key)).sibling(0).text();
     }
 
@@ -168,16 +167,19 @@ public class RegistrationPage {
 
     @Step("Get border color of First Name field")
     public String getFirstNameBorderColor() {
+        firstNameInput.shouldHave(com.codeborne.selenide.Condition.cssValue("border-color", "rgb(220, 53, 69)"));
         return firstNameInput.getCssValue("border-color");
     }
 
     @Step("Get border color of Last Name field")
     public String getLastNameBorderColor() {
+        lastNameInput.shouldHave(com.codeborne.selenide.Condition.cssValue("border-color", "rgb(220, 53, 69)"));
         return lastNameInput.getCssValue("border-color");
     }
 
     @Step("Get border color of Mobile Number field")
     public String getMobileBorderColor() {
+        mobileNumberInput.shouldHave(com.codeborne.selenide.Condition.cssValue("border-color", "rgb(220, 53, 69)"));
         return mobileNumberInput.getCssValue("border-color");
     }
 }
