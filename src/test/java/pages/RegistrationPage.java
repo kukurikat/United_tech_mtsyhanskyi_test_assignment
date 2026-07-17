@@ -119,7 +119,7 @@ public class RegistrationPage {
     }
 
     @Step("Upload picture")
-    public RegistrationPage uploadPicture(String uploadPicture) {
+    public RegistrationPage uploadPicture() {
         uploadPictureInput.uploadFromClasspath("testing_picture.jpg");
         return this;
     }

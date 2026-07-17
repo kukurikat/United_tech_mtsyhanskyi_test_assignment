@@ -43,7 +43,7 @@ public class RegistrationTest extends BaseTest {
                 .fillDateOfBirth(dob)
                 .fillSubjects(subjects)
                 .fillHobbies(hobbies)
-                .uploadPicture(pictureName)
+                .uploadPicture()
                 .fillCurrentAddress(address)
                 .fillState(state, city)
                 .clickSubmitButton();
@@ -69,7 +69,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test(description = "Close modal window button works")
-    public void CloseModalWindow() {
+    public void closeModalWindow() {
         registrationPage.openPage()
                 .fillFirstName("Maksym")
                 .fillLastName("Tsyhanskyi")
